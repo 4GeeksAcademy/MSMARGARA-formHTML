@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/7bf38af3cc.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="conteiner m-5">
+        <form id="paymentForm">
+            <div class="card">
+                <div class="card-header text-bg-light">
+                  <h4>Payment form example</h4>
+                </div>
+                <div class="card-body">
+                    <div id="liveAlertPlaceholder"></div>
+                    <div class="row mb-3">
+                        <div class="col-5">
+                            <label for="cardNumber" class="form-label">Card #</label>
+                            <input type="text" class="form-control required" id="cardNumber" aria-describedby="cardNumber" placeholder="XXXXXXXXXXXXXXXX" pattern="[0-9]{1,16}" title="Debe contener 16 dígitos numéricos." required>
+                        </div>
+                        <div class="col-3">
+                            <label for="cvcNumber" class="form-label">CVC #</label>
+                            <input type="text" class="form-control required" id="cvcNumber" aria-describedby="cvcNumber" placeholder="000" pattern="[0-9]{1,3}" title="Debe contener 3 dígitos numéricos." required>
+                        </div>
+                        <div class="col-4">
+                            <label for="amount" class="form-label">Amount</label>
+                            <div class="d-flex align-items-center">
+                                <h5 style="margin-right: 5px;">$</h5>
+                                <input type="text" class="form-control required" id="amount" aria-describedby="amount" placeholder="Amount" pattern="^\d{1,3}(,\d{3})*(\.\d{1,2})?$" title="Ingrese un monto válido en pesos.">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control required" id="firstName" aria-describedby="firstName" pattern="[A-Za-z\s']{1,}" 
+                                    title="Por favor, ingrese un nombre válido. Puede contener letras, espacios y apóstrofes."required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="city" class="form-label">City</label>
+                                    <input type="text" class="form-control required" id="city" aria-describedby="city" pattern="[A-Za-z\s']{1,}" 
+                                    title="Por favor, ingrese una ciudad válida. Puede contener letras, espacios y apóstrofes.">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-5 mb-3">
+                                    <label for="typeCard" class="form-label">We accept</label>
+                                    <div class="d-flex flex-wrap  bg-secondary typeCard justify-content-between">
+                                        <div class="p-2 flex-fill">
+                                            <input class="form-check-input required" type="radio" name="radioTypeCard" id="radioMaster">
+                                            <i class="fa-brands fa-cc-mastercard"></i>
+                                        </div>
+                                        <div class="p-2 flex-fill">
+                                            <input class="form-check-input required" type="radio" name="radioTypeCard" id="radioVisa">
+                                            <i class="fa-brands fa-cc-visa"></i>
+                                        </div>
+                                        <div class="p-2 flex-fill">
+                                            <input class="form-check-input required" type="radio" name="radioTypeCard" id="radioDiners">
+                                            <i class="fa-brands fa-cc-diners-club mr-4"></i>
+                                        </div>
+                                        <div class="p-2 flex-fill">
+                                            <input class="form-check-input required" type="radio" name="radioTypeCard" id="radioAmex">
+                                            <i class="fa-brands fa-cc-amex"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control required" id="lastName" aria-describedby="lastName" pattern="[A-Za-z\s']{1,}" 
+                                    title="Por favor, ingrese un apellido válido. Puede contener letras, espacios y apóstrofes.">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label for="exampleInputEmail1" class="form-label">State</label>
+                                    <select class="form-select form-select required" aria-label="state">
+                                        <option hidden value="">Pick a state</option>
+                                        <option value="option1">Option 1</option>
+                                        <option value="option2">Option 2</option>
+                                        <option value="option3">Option 3</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="postalCode" class="form-label">Postal Code</label>
+                                    <input type="text" class="form-control required" id="postalCode" aria-describedby="postalCode" pattern="\d{4}(-\d{3})?" 
+                                    title="Por favor, ingrese un código postal válido. Puede ser en el formato 'XXXX' o 'XXXX-XXX'.">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" aria-describedby="message" style="height: 100px;"></textarea>
+                                    <div id="messegeAlert" class="form-text">Add any notes here.</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-body-secondary">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-secondary me-2">Cancel</button>
+                        <button type="submit" value="Send Form" class="btn btn-primary" id="liveAlertBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>   
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

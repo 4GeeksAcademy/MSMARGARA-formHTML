@@ -1,0 +1,9 @@
+i{
+    color: #fff; 
+}
+.typeCard{
+    border-radius: 5px;
+}
+.typeCard input[type="radio"]{
+    transform: scale(0.6);
+}
